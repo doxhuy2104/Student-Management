@@ -32,13 +32,14 @@ class StudentAdapter(val studentList:MutableList<StudentModel>, private val cont
         holder.mssv.text = student.mssv
 
         holder.itemView.setOnClickListener{
+            val currentPosition = holder.adapterPosition
             val popupMenu = PopupMenu(context, holder.itemView)
             popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
 
             popupMenu.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.update -> {
-                        onUpdate(position)
+                        onUpdate(currentPosition)
                         true
                     }
                     R.id.delete -> {
@@ -47,7 +48,7 @@ class StudentAdapter(val studentList:MutableList<StudentModel>, private val cont
                             .setTitle("Xác nhận xoá")
                             .setMessage("Bạn có chắc chắn muốn xoá sinh viên ${student.name.toString()}")
                             .setPositiveButton("Có") { dialog, which ->
-                                onDelete(position)
+                                onDelete(currentPosition)
                             }
                             .setNegativeButton("Không") { dialog, which ->
 

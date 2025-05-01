@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             })
         recyclerView.adapter = studentAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-        studentList.add(StudentModel("Do Xuan Huy", "20225331", "doxhuy2104@gmail.com", "0999999999"))
+        studentList.add(StudentModel("Đỗ Xuân Huy", "20225331", "doxhuy2104@gmail.com", "0999999999"))
         studentAdapter.notifyDataSetChanged()
     }
 
