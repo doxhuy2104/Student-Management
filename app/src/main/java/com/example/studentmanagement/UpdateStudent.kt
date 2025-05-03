@@ -34,18 +34,19 @@ class UpdateStudent : AppCompatActivity() {
             editMSSV.setText(student.mssv)
             editEmail.setText(student.email)
             editPhone.setText(student.phone)
-        }
+
         button.setOnClickListener{
-            student = StudentModel(
+            val updateStudent = StudentModel(
+                student.id,
                 editName.text.toString(),
                 editMSSV.text.toString(),
                 editEmail.text.toString(),
                 editPhone.text.toString()
             )
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("student", student)
+            intent.putExtra("student", updateStudent)
             setResult(RESULT_OK, intent)
             finish()
-        }
+        }}
     }
 }

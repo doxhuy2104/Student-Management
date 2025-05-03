@@ -30,7 +30,10 @@ class AddStudent : AppCompatActivity() {
 
 
         button.setOnClickListener{
+            val studentSize = intent.getIntExtra("studentListSize", 0)
+
             val student = StudentModel(
+                id = studentSize+1,
                 editName.text.toString(),
                 editMSSV.text.toString(),
                 editEmail.text.toString(),

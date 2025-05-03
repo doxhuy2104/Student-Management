@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         if (it.resultCode == Activity.RESULT_OK) {
             val student = it.data?.getSerializableExtra("student") as? StudentModel
             if (student != null) {
-                val index = studentList.indexOfFirst { it.mssv == student.mssv }
+                val index = studentList.indexOfFirst { it.id == student.id }
                 studentList[index]=student
                 studentAdapter.notifyDataSetChanged()
             }
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             })
         recyclerView.adapter = studentAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-        studentList.add(StudentModel("Đỗ Xuân Huy", "20225331", "doxhuy2104@gmail.com", "0999999999"))
+        studentList.add(StudentModel(1,"Đỗ Xuân Huy", "20225331", "doxhuy2104@gmail.com", "0999999999"))
         studentAdapter.notifyDataSetChanged()
     }
 
@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.add_student -> {
                 val intent = Intent(this, AddStudent::class.java)
+                intent.putExtra("studentSize", studentList.size)
                 addLauncher.launch(intent)
                 true
             }
