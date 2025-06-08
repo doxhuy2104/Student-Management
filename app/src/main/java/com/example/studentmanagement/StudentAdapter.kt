@@ -15,7 +15,7 @@ import android.view.ContextMenu
 import android.widget.PopupMenu
 import androidx.appcompat.app.AlertDialog
 
-class StudentAdapter(val studentList:MutableList<StudentModel>, private val context: Context,private val onDelete:(Int)->Unit,private val onUpdate:(Int)->Unit):RecyclerView.Adapter<StudentAdapter.StudentViewHolder>(){
+class StudentAdapter(val studentList:MutableList<Student>, private val context: Context,private val onDelete:(Int)->Unit,private val onUpdate:(Int)->Unit):RecyclerView.Adapter<StudentAdapter.StudentViewHolder>(){
     class StudentViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val name: TextView = itemView.findViewById(R.id.textView)
         val mssv: TextView = itemView.findViewById(R.id.textView2)
